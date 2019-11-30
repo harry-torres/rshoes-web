@@ -28,6 +28,7 @@ class Home extends Component {
     // from mapDispatchToProps
     const { addToCartRequest } = this.props;
     addToCartRequest(id);
+    // this.props.history.push('/cart');
   };
 
   render() {
