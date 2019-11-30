@@ -1,14 +1,22 @@
 const actions = {
-  ADD: '@cart/ADD',
+  ADD_REQUEST: '@cart/ADD_REQUEST',
+  ADD_SUCCESS: '@cart/ADD_SUCCESS',
   REMOVE: '@cart/REMOVE',
   UPDATE_AMOUNT: '@cart/UPDATE_AMOUNT',
 };
 
 export default actions;
 
-export function addToCart(product) {
+export function addToCartRequest(id) {
   return {
-    type: actions.ADD,
+    type: actions.ADD_REQUEST,
+    id,
+  };
+}
+
+export function addToCartSuccess(product) {
+  return {
+    type: actions.ADD_SUCCESS,
     product,
   };
 }
