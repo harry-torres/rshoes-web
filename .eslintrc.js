@@ -35,5 +35,6 @@ module.exports = {
     'react/static-property-placement': 'off',
     'camelcase': 'off',
     'no-console': ['error', { allow: ["tron"]}],
+    'no-param-reassign': 'off',
   },
 };
