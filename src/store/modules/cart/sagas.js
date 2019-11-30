@@ -6,12 +6,22 @@ import { formatPrice } from '../../../util/format';
 // generator
 function* addToCart({ id }) {
   // await
-  console.tron.log('teste');
 
   const product = yield select(state => state.cart.find(p => p.id === id));
 
+  const stock = yield call(api.get, `/stock/${id}`);
+
+  const stockAmount = stock.data.amount;
+  const currentAmount = product ? product.amount : 0;
+
+  const amount = currentAmount + 1;
+
+  if (amount > stockAmount) {
+    // console.tron.warn('Erro');
+    return;
+  }
+
   if (product) {
-    const amount = product.amount + 1;
     console.tron.log(product, amount);
     yield put(updateAmount(id, amount));
   } else {
