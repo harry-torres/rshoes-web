@@ -2,7 +2,8 @@ const actions = {
   ADD_REQUEST: '@cart/ADD_REQUEST',
   ADD_SUCCESS: '@cart/ADD_SUCCESS',
   REMOVE: '@cart/REMOVE',
-  UPDATE_AMOUNT: '@cart/UPDATE_AMOUNT',
+  UPDATE_AMOUNT_REQUEST: '@cart/UPDATE_AMOUNT_REQUEST',
+  UPDATE_AMOUNT_SUCCESS: '@cart/UPDATE_AMOUNT_SUCCESS',
 };
 
 export default actions;
@@ -28,9 +29,17 @@ export function removeFromCart(id) {
   };
 }
 
-export function updateAmount(id, amount) {
+export function updateAmountRequest(id, amount) {
   return {
-    type: actions.UPDATE_AMOUNT,
+    type: actions.UPDATE_AMOUNT_REQUEST,
+    id,
+    amount,
+  };
+}
+
+export function updateAmountSuccess(id, amount) {
+  return {
+    type: actions.UPDATE_AMOUNT_SUCCESS,
     id,
     amount,
   };
