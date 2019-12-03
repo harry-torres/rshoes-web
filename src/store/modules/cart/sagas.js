@@ -24,7 +24,6 @@ function* addToCart({ id }) {
   }
 
   if (product) {
-    console.tron.log(product, amount);
     yield put(updateAmountSuccess(id, amount));
   } else {
     const response = yield call(api.get, `/products/${id}`);
